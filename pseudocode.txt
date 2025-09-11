@@ -1,0 +1,8 @@
+Hangman Game
+add letters
+add words
+add the hangman (picture)
+
+add play again button
+add number of guess choices
+add a line for the words
