@@ -1,12 +1,21 @@
-body h1 {
+body {
   font-family: "Courier New", Courier, monospace;
   font-size: 40px;
   text-align: center;
   position: relative;
-  margin-top: 16%;
+  margin-top: 25%;
+  background-image: url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3253300/9cad239dce663a4d9bcf3cc013411e7bcaab58a5/capsule_616x353.jpg?t=1732659042);
+  background-position: center;
+  background-size: cover;
 }
 
 button {
-  background-color: blue;
-  color: beige;
+  cursor: pointer;
+  border-radius: 10%;
+  padding: 18px 18px;
+}
+
+h1 {
+  color: aliceblue;
+  margin-top: 16%;
 }
