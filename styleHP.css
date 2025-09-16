@@ -4,18 +4,25 @@ body {
   text-align: center;
   position: relative;
   margin-top: 25%;
-  background-image: url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3253300/9cad239dce663a4d9bcf3cc013411e7bcaab58a5/capsule_616x353.jpg?t=1732659042);
+  background-image: url(https://cdn.pixabay.com/photo/2022/09/21/10/27/pumpkins-7469995_1280.jpg);
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 button {
   cursor: pointer;
+  color: rgb(252, 164, 0);
   border-radius: 10%;
   padding: 18px 18px;
 }
 
 h1 {
-  color: aliceblue;
-  margin-top: 16%;
+  color: rgb(252, 164, 0);
+}
+
+h2 {
+  font-weight: bolder;
+  color: rgb(252, 164, 0);
 }
