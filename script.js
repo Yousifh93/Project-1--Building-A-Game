@@ -1,35 +1,36 @@
 const letters = document.querySelectorAll(".letter")
-const wordUnderline = document.querySelector("#word-underline")
-const triesElement = document.querySelector(".strikes")
+const wordUnderline = document.querySelector("#words-underline")
+const strikeElement = document.querySelector(".strikes")
 const gameOverC = document.querySelector("game-is-over")
 const gameWinC = document.querySelector("Winner")
 const hintText = document.querySelector("#HINT")
-const reset = document.querySelector("#reset")
+const hangManImg = document.querySelector("#Hangman")
+const restartGame = document.querySelector("#reset")
 
 // this is an array of words to guess.
-const Word = ["apple"]
+const Word = ["apple", "orange"]
 // this is an array of hints to help the player guess the word.
-const HINT = ["red round fruit"]
+const HINT = ["red round fruit", "xyz"]
 
 // this selects words from the array of words.
-let wordChooser = []
+let wordChooser = 0
 // this is for an incorrect guess from the player.
 let incorrectLetter = []
 // this shows the hints for the player.
-let selectorHint = []
+let selectorHint
 // this randomly generates the words from the array list.
-let selectorWord = []
+let selectorWord = ""
 // this is for when a player picks up a letter.
-let letterPick = []
+let letterPick
 //  this is a total number of chances the player has.
 let strikes = 6
 // this basically shows the word on the screen.
-let displayWord = 0
+let displayWord = []
 
 // this is a call functions for when the game starts.
 function init() {
   randomWordPick()
-  playgame()
+  playGame()
   displayHint()
 }
 
@@ -45,12 +46,12 @@ const playGame = () => {
     wordUnderline.appendChild(pElement)
   }
   // this is an HTML element, its purpose is to show and make the remaining strikes appear on the screen for the player.
-  triesElement.textContent = "strikes: $(strikes"
+  strikeElement.textContent = `strikes: ${strikes}`
 }
 
 // this is a random word generator
 const randomWordPick = () => {
-  wordChooser = Math.floor(Math.random() * word, length)
+  wordChooser = Math.floor(Math.random() * Word, length)
   selectorWord = Word[wordChooser]
 }
 
@@ -60,17 +61,17 @@ const showHint = () => {
     return oneWord === selectorWord
   })
   selectorHint = hintIndex
-  hintIndex.textContent = selectorHint[hintIndex]
+  hintText.textContent = HINT[hintIndex]
 }
 
 // this is to show and make the letters appear when the player selects the letters.
 letters.forEach((oneLetter) => {
   oneLetter.addEventListener("click", (event) => {
-    pickedLetter = event.target.id.LowerCase()
-    if (selectorWord.includes(pickedLetter)) {
-      showWord(pickedLetter)
+    letterPick = event.target.id.toLowerCase()
+    if (selectorWord.includes(letterPick)) {
+      showWord(letterPick)
     } else {
-      strikes()
+      strikesPoints()
     }
   })
 })
@@ -79,11 +80,13 @@ letters.forEach((oneLetter) => {
 const ShowUnderLines = () => {
   wordUnderline.innerHTML = ""
   // loop function made for the array of words.
-  for (let i = 0; i < Words.length; i++) pElement = document.createElement("p")
-  // an element for the underlines.
-  pElement.textContent = "_"
-  // to fill up the html with underlines
-  wordUnderline.appendChild(pElement)
+  for (let i = 0; i < selectorWord.length; i++) {
+    let pElement = document.createElement("p")
+    // an element for the underlines.
+    pElement.textContent = "_"
+    // to fill up the html with underlines
+    wordUnderline.appendChild(pElement)
+  }
 }
 
 // this to show the right chosen letter by the user.
@@ -106,9 +109,9 @@ const showWord = (letterPick) => {
 const strikesPoints = () => {
   strikes -= 1
 
-  Image.src = "images/Strike 0.png"
+  image.src = `images/strike-${strikes}.png`
   //
-  triesElement.textContent = `Strikes Remaining ${strikes}`
+  strikeElement.textContent = `Strikes Remaining ${strikes}`
 
   gameOver()
 }
@@ -132,10 +135,9 @@ const gameWin = () => {
     gameWinC.appendChild(gameWinText)
   }
 }
-
-reset = () => {
+const replayGame = () => {
   strikes = 6
-  Image.src = "images/Strike 0.png"
+  image.src = "/Images/Beginning.png"
   selectorHint = ""
   displayWord = []
   selectorWord = ""
@@ -148,5 +150,5 @@ reset = () => {
   showHint()
 }
 
-resetGame.addEventListener("click", RestartGame)
+restartGame.addEventListener("click", replayGame)
 init()
