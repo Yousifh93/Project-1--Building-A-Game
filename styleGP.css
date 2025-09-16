@@ -54,8 +54,10 @@ button {
 
 #winner {
   color: white;
+  font-weight: bold;
 }
 
 #game-is-over {
   color: white;
+  font-weight: bold;
 }
