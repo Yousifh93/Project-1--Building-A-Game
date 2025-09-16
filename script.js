@@ -1,16 +1,21 @@
 const letters = document.querySelectorAll(".letter")
 const wordUnderline = document.querySelector("#words-underline")
 const strikeElement = document.querySelector(".strikes")
-const gameOverC = document.querySelector("game-is-over")
-const gameWinC = document.querySelector("Winner")
-const hintText = document.querySelector("#HINT")
-const hangManImg = document.querySelector("#Hangman")
+const gameOverC = document.querySelector("#game-is-over")
+const gameWinC = document.querySelector("#winner") // lowercase w to match HTML
+const hintText = document.querySelector("#hint") // lowercase h to match HTML
+const hangManImg = document.querySelector("#hangman") // lowercase h to match HTML
 const restartGame = document.querySelector("#reset")
 
 // this is an array of words to guess.
-const Word = ["apple", "orange"]
+const Word = ["tomato", "Castle", "mainstream", "bronze"]
 // this is an array of hints to help the player guess the word.
-const HINT = ["red round fruit", "xyz"]
+const HINT = [
+  "red round fruit",
+  "medieval stronghold",
+  "something that is culturally accepted and practiced by the majority",
+  "",
+]
 
 // this selects words from the array of words.
 let wordChooser = 0
@@ -31,7 +36,7 @@ let displayWord = []
 function init() {
   randomWordPick()
   playGame()
-  displayHint()
+  showHint()
 }
 
 const playGame = () => {
@@ -51,7 +56,7 @@ const playGame = () => {
 
 // this is a random word generator
 const randomWordPick = () => {
-  wordChooser = Math.floor(Math.random() * Word, length)
+  wordChooser = Math.floor(Math.random() * Word.length)
   selectorWord = Word[wordChooser]
 }
 
@@ -67,7 +72,7 @@ const showHint = () => {
 // this is to show and make the letters appear when the player selects the letters.
 letters.forEach((oneLetter) => {
   oneLetter.addEventListener("click", (event) => {
-    letterPick = event.target.id.toLowerCase()
+    letterPick = oneLetter.id.toLowerCase()
     if (selectorWord.includes(letterPick)) {
       showWord(letterPick)
     } else {
@@ -109,8 +114,7 @@ const showWord = (letterPick) => {
 const strikesPoints = () => {
   strikes -= 1
 
-  image.src = `images/strike-${strikes}.png`
-  //
+  hangManImg.src = `images/strike-${strikes}.png` // fixed: use hangManImg not image
   strikeElement.textContent = `Strikes Remaining ${strikes}`
 
   gameOver()
@@ -137,7 +141,7 @@ const gameWin = () => {
 }
 const replayGame = () => {
   strikes = 6
-  image.src = "/Images/Beginning.png"
+  hangManImg.src = "images/Beginning.png"
   selectorHint = ""
   displayWord = []
   selectorWord = ""

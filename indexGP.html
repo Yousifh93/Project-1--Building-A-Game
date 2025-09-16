@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman</title>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="./styleGP.css" />
+    <script defer src="/script.js"></script>
+    <link rel="stylesheet" href="/styleGP.css" />
   </head>
   <body>
     <h1>Hangman Game</h1>
-    <h4 id="HINT"></h4>
+    <h5 id="hint">HINT</h5>
     <div id="game-is-over"></div>
-    <div id="Winner"></div>
-    <div id="words-underline"></div>
+    <div id="winner"></div>
     <div class="gameboard"></div>
     <div class="strikes"></div>
-    <img id="Hangman" src="Images/Beginning.png" alt="image" />
+    <img id="hangman" />
+    <div id="words-underline"></div>
     <section class="keyboard">
       <div class="letter">
         <button class="letter" id="A">A</button>
@@ -39,7 +39,7 @@
         <button class="letter" id="S">S</button>
         <button class="letter" id="T">T</button>
         <button class="letter" id="U">U</button>
-        <button class="letter" id="v">V</button>
+        <button class="letter" id="V">V</button>
         <button class="letter" id="W">W</button>
         <button class="letter" id="X">X</button>
         <button class="letter" id="Y">Y</button>

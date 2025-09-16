@@ -1,9 +1,9 @@
 body {
   text-align: center;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0;
-  font-size: 20px;
-  background-color: bisque;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.647);
 }
 
 .letters,
@@ -11,7 +11,7 @@ button {
   margin: 0 auto 10pc auto;
   padding: 10px;
   font-size: larger;
-  border-radius: 10px;
+  border-radius: 190px;
   display: inline-block;
 }
 
@@ -26,12 +26,18 @@ button {
   visibility: hidden;
 }
 
-#word-underscores {
+#words-underline {
   display: flex;
+  color: white;
   justify-content: center;
   gap: 10px;
+  font-size: 40px;
 }
 
 image {
   align-self: center;
+}
+
+#hint {
+  font-size: 40px;
 }

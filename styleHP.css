@@ -1,0 +1,12 @@
+body h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
+  text-align: center;
+  position: relative;
+  margin-top: 16%;
+}
+
+button {
+  background-color: blue;
+  color: beige;
+}
