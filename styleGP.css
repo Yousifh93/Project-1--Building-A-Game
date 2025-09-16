@@ -7,8 +7,7 @@ body {
   background-position: center;
   position: relative;
   background-repeat: no-repeat;
-  height: 100vh;
-
+  height: 120vh;
   background-size: cover;
 }
 
@@ -22,7 +21,8 @@ button {
   cursor: pointer;
   border-radius: 20%;
   padding: 14px 12px;
-  color: red;
+  color: rgb(252, 164, 0);
+  font-weight: bolder;
 }
 
 .reset {
