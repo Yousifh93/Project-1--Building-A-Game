@@ -1,43 +1,52 @@
 body {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   padding: 0;
   font-size: 30px;
-  background-color: rgba(0, 0, 0, 0.647);
+  background-image: url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3253300/9cad239dce663a4d9bcf3cc013411e7bcaab58a5/capsule_616x353.jpg?t=1732659042);
+  background-position: center;
+  background-size: cover;
 }
 
-.letters,
+h1 {
+  color: white;
+}
+.letters {
+  border-radius: 20%;
+}
 button {
-  margin: 0 auto 10pc auto;
-  padding: 10px;
-  font-size: larger;
-  border-radius: 190px;
-  display: inline-block;
+  cursor: pointer;
+  border-radius: 20%;
+  padding: 16px 16px;
 }
 
 .reset {
-  margin-bottom: 350px;
-  padding: 20px;
-  border-radius: 40px;
-  display: flex;
+  border-radius: 30%;
 }
 
 .hidden {
-  visibility: hidden;
 }
 
 #words-underline {
   display: flex;
+  font-weight: bolder;
   color: white;
   justify-content: center;
-  gap: 10px;
-  font-size: 40px;
-}
-
-image {
-  align-self: center;
 }
 
 #hint {
-  font-size: 40px;
+  font-weight: bolder;
+  font-size: 80%;
+  color: white;
+}
+
+.strikes {
+  font-size: 30px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: white;
+}
+
+#winner {
+  color: white;
 }
