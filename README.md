@@ -33,8 +33,5 @@ Images:
 
 1- Image: https://cdn.pixabay.com/photo/2022/09/21/10/27/pumpkins-7469995_1280.jpg
 
-2- Image: https://cdn.pixabay.com/photo/2022/09/21/10/27/pumpkins-7469995_1280.jpg
-
 // the url of the image you got from
 ***
-
