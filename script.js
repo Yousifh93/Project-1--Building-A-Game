@@ -107,6 +107,7 @@ const playGame = () => {
 const randomWordPick = () => {
   wordChooser = Math.floor(Math.random() * Word.length)
   selectorWord = Word[wordChooser]
+  console.log(selectorWord)
 }
 
 // this function is for having it pick the hints and match them with the appropriate words.

@@ -1,8 +1,11 @@
 Hangman Game
-add letters
-add words
-add the hangman (picture)
+added letters
+added words
+added the hangman (picture)
 
-add play again button
-add number of guess choices
-add a line for the words
+added play again button
+added number of guess choices
+added a line for the words
+added js functions for the game
+using the DOM and added to it the if and loop functions
+made the hangman into hangman halloween theme and styled it with CSS
