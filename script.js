@@ -91,29 +91,42 @@ function init() {
 const playGame = () => {
   // this shows the words that are in the word array.
   displayWord = []
+  // this removes previous old letters and replace it when you want to play again
   wordUnderline.innerHTML = ""
   // this is a loop and its purpose is to push and match the words based on the underlines shown in the screen which is the number of letters of the word given.
   for (let i = 0; i < selectorWord.length; i++) {
+    // this makes the the looping for each letter for the chosen word.
+    // this loop is to match the letters with the underlines on the screen based on the word randomly given.
     displayWord.push("_")
+    // this adds an underline for each letter on the screen based on the words length but this alone is not enough so need to create a P element for it.
     const pElement = document.createElement("p")
+    // so by using the DOM, created a P element for the underline so to be able to print the underline and make it actually functional.
     pElement.textContent = "_"
+    // this is for the underline to appear.
     wordUnderline.appendChild(pElement)
+    // here the function appendchild is to print up the underlines it acts similar to a console.log.
   }
   // this is an HTML element, its purpose is to show and make the remaining strikes appear on the screen for the player.
   strikeElement.textContent = `strikes: ${strikes}`
+  // $ means
 }
 
-// this is a random word generator
+// this is a random word generator that selects a random word from the words array list.
 const randomWordPick = () => {
   wordChooser = Math.floor(Math.random() * Word.length)
+  // here math floor would count and calculate the words array list randomly and math random will pick up a word randomly after based on the array list length.
   selectorWord = Word[wordChooser]
+  // this prints the word that is chosen by the math.floor and math random for it to be displayed on the screen.
+
   console.log(selectorWord)
 }
 
 // this function is for having it pick the hints and match them with the appropriate words.
 const showHint = () => {
   const hintIndex = Word.findIndex(function (oneWord) {
+    // created a const called hintIndex and word.findindex ==> ( const word = { ) is to select a word and hint from the const word and hint so it matches up the word and hint together.
     return oneWord === selectorWord
+    // this to bring the hint that matches with the selected word
   })
   selectorHint = hintIndex
   hintText.textContent = HINT[hintIndex]
