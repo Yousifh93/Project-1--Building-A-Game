@@ -2,9 +2,9 @@ const letters = document.querySelectorAll(".letter")
 const wordUnderline = document.querySelector("#words-underline")
 const strikeElement = document.querySelector(".strikes")
 const gameOverC = document.querySelector("#game-is-over")
-const gameWinC = document.querySelector("#winner") // lowercase w to match HTML
-const hintText = document.querySelector("#hint") // lowercase h to match HTML
-const hangManImg = document.querySelector("#hangman") // lowercase h to match HTML
+const gameWinC = document.querySelector("#winner")
+const hintText = document.querySelector("#hint")
+const hangManImg = document.querySelector("#hangman")
 const restartGame = document.querySelector("#reset")
 
 // this is an array of words to guess.
@@ -184,7 +184,7 @@ const showWord = (letterPick) => {
 
 const strikesPoints = () => {
   strikes -= 1
-  // this is the number of strikes it will be decreased based on the player if an incorrect letter is picked and attached pictures will change until it reaches to the last.
+  // this is the number of strikes it will be decreased based on the player if an incorrect letter has been picked and attached pictures will change until it reaches to the last.
   hangManImg.src = `images/strike-${strikes}.png` // this displays the hangman pictures based on the strikes order
   strikeElement.textContent = `Strikes Remaining ${strikes}` // this is done to show the remaining strikes on the screen
 
