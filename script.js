@@ -126,20 +126,27 @@ const showHint = () => {
   const hintIndex = Word.findIndex(function (oneWord) {
     // created a const called hintIndex and word.findindex ==> ( const word = { ) is to select a word and hint from the const word and hint so it matches up the word and hint together.
     return oneWord === selectorWord
-    // this to bring the hint that matches with the selected word
+    // this brings the const hints array list to match with the selected word array list
   })
   selectorHint = hintIndex
+  // this will match the hints array list with the hint word array list
   hintText.textContent = HINT[hintIndex]
+  // this will print up the hint that matches with the word given from the word array list
 }
 
 // this is to show and make the letters appear when the player selects the letters.
 letters.forEach((oneLetter) => {
   oneLetter.addEventListener("click", (event) => {
+    // added an eventlistner so whenever it clicks a letter it will display if its correct
     letterPick = oneLetter.id.toLowerCase()
+    // this is for to make the letters chosen by lower case only
     if (selectorWord.includes(letterPick)) {
+      // an if condition for a letter to be chosen only based on the word chosen on the screen
       showWord(letterPick)
+      // this will print the letter if the correct letter is chosen
     } else {
       strikesPoints()
+      // else it will add a strike condition to it.
     }
   })
 })
@@ -150,42 +157,44 @@ const ShowUnderLines = () => {
   // loop function made for the array of words.
   for (let i = 0; i < selectorWord.length; i++) {
     let pElement = document.createElement("p")
-    // an element for the underlines.
+    // this so i can create a Paragraph element to be used to print and show the underlines
     pElement.textContent = "_"
     // to fill up the html with underlines
     wordUnderline.appendChild(pElement)
+    // this basically prints the underlines
   }
 }
 
 // this to show the right chosen letter by the user.
 const showWord = (letterPick) => {
-  // this is to make the underlines be replaced with letters.
   wordUnderline.innerHTML = ""
   selectorWord.split("").forEach((letter, idx) => {
     if (letter === letterPick) {
       displayWord[idx] = letter
-    }
+    } // this is to make the underlines be replaced with letters. it wil take a word and the .split will take each letter and put it instead of the underlines.
   })
   displayWord.forEach((Element) => {
+    // elements are the words
     let pElement = document.createElement("p")
     pElement.textContent = Element
     wordUnderline.appendChild(pElement)
-  })
+  }) // this is for the word to be shown when its fully guessed and the game is won.
   gameWin()
 }
 
 const strikesPoints = () => {
   strikes -= 1
-
-  hangManImg.src = `images/strike-${strikes}.png` // fixed: use hangManImg not image
-  strikeElement.textContent = `Strikes Remaining ${strikes}`
+  // this is the number of strikes it will be decreased based on the player if an incorrect letter is picked and attached pictures will change until it reaches to the last.
+  hangManImg.src = `images/strike-${strikes}.png` // this displays the hangman pictures based on the strikes order
+  strikeElement.textContent = `Strikes Remaining ${strikes}` // this is done to show the remaining strikes on the screen
 
   gameOver()
 }
-
+//
 const gameOver = () => {
   if (strikes === 0) {
     let gameOverText = document.createElement("p")
+    // if the strikes reaches 0 created a p element to print out the word gameover like an alert shown in the screen to tell the player that he lost
     gameOverText.textContent = "Game is over!"
     gameOverC.appendChild(gameOverText)
     hintText.textContent = ""
@@ -193,15 +202,19 @@ const gameOver = () => {
 }
 
 const gameWin = () => {
+  // this is done for when a player guessed the full word before the strikes reaching 0 so created
+  //
   let hasWon = displayWord.every((Element) => {
-    return Element !== "_"
+    return Element !== "_" // this will check if the underlines are filled with letters and the word is completed
   })
   if (hasWon) {
     let gameWinText = document.createElement("p")
     gameWinText.textContent = "win!"
     gameWinC.appendChild(gameWinText)
   }
+  // its an if to create a paragraph p to display the message that the player has won on the screen
 }
+// this resets everything back to its starting shape when the button restart game is clicked.
 const replayGame = () => {
   strikes = 6
   hangManImg.src = "images/Beginning.png"
@@ -216,6 +229,6 @@ const replayGame = () => {
   playGame()
   showHint()
 }
-
+// this resets everything back to its starting shape when the button restart game is clicked.
 restartGame.addEventListener("click", replayGame)
 init()
