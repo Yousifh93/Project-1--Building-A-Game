@@ -21,15 +21,11 @@ button {
   cursor: pointer;
   border-radius: 20%;
   padding: 14px 12px;
-  color: rgb(252, 164, 0);
+  color: rgb(255, 255, 255);
   font-weight: bolder;
-}
-
-.reset {
-  border-radius: 40%;
-}
-
-.hidden {
+  background-color: orange;
+  border-radius: 20%;
+  margin-bottom: 2%;
 }
 
 #words-underline {
